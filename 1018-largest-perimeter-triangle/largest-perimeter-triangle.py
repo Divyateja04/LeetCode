@@ -1,9 +1,8 @@
-class Solution:
+class Solution(object):
     def largestPerimeter(self, nums):
+        nums = sorted(nums, reverse=True) 
+        for i in range(len(nums)-2):
+            if nums[i] < nums[i+1] +nums[i+2]: 
+                return nums[i]+nums[i+1] +nums[i+2] 
+        return 0
         
-        nums.sort(reverse = True)
-        
-        while len(nums) > 2 and nums[0] >= nums[1] + nums[2]:
-            nums.pop(0)
-            
-        return 0 if len(nums) < 3 else sum(nums[:3])
